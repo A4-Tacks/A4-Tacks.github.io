@@ -50,6 +50,8 @@ git 可以使用外部编辑器来更方便的解决合并冲突, 例如使用 v
 
 指定 `--depth=10` 将只克隆十个 commit, 这样不用拉取过于久远的历史 (fetch 也可用该参数)
 
+如果使用过程中需要更深的历史, 可以使用 `git fetch --depth=30`
+
 
 部分克隆 (部分拉取)
 -------------------------------------------------------------------------------
@@ -88,3 +90,34 @@ git 可以使用外部编辑器来更方便的解决合并冲突, 例如使用 v
 手动应用 commit
 -------------------------------------------------------------------------------
 `git cherry-pick` 将任意的 commit 提交至当前的 HEAD 上, 非常灵活
+
+
+配置 git
+-------------------------------------------------------------------------------
+配置一些 git 设置, 使其更方便使用, 配置文件位于 `~/.gitconfig`
+
+### 一些实用的 git 别名
+
+```gitconfig
+[alias]
+    cp = cherry-pick
+    dt = difftool
+    mt = mergetool
+    rh = reset --hard
+    sc = sparse-checkout
+    sparse-clone = clone --depth=1 --filter=blob:none --sparse
+    detach = switch --detach
+    log-graph = -c log.showRoot=false log --graph --all
+```
+
+> [!NOTE]
+> 关于为什么不用 shell 的别名, 因为我使用 bash, 而经过了 bash 别名补全就很麻烦了,
+> 而 git 的别名通常能识别补全
+
+### 配置 core
+
+```gitconfig
+[core]
+	pager = less -FRXS      # less 查看时处理过长的行, 防止其破坏预览
+	quotePath = false       # 中文路径等情况必备
+```

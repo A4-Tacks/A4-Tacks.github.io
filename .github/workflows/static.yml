@@ -31,6 +31,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - run: sed -i 's/\.md)/.html)/g' README.md
       - name: Build html
         run: |
           wget -O md2html.tar.gz https://github.com/A4-Tacks/markdown2html-converter/releases/download/v2.0.0-local.2/markdown2html-converter-v2.0.0-local.2-x86_64-unknown-linux-musl.tar.gz

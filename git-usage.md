@@ -139,8 +139,8 @@ git 用引用指代某个 树对象(commit)、文件对象(blob) 等, 有多种�
 
 ```gitconfig
 [core]
-	pager = less -FRXS      # less 查看时处理过长的行, 防止其破坏预览
-	quotePath = false       # 中文路径等情况必备
+    pager = less -FRXS      # less 查看时处理过长的行, 防止其破坏预览
+    quotePath = false       # 中文路径等情况必备
 ```
 
 
@@ -170,3 +170,29 @@ git 用引用指代某个 树对象(commit)、文件对象(blob) 等, 有多种�
 
 例如 `git format-patch HEAD~8` 将会把当前三个 commit 制作成补丁文件,
 而在其它的设备上收到这些补丁文件后, 使用 `git am` 一次性利用这些补丁文件创建 commit
+
+
+拉取远端
+-------------------------------------------------------------------------------
+这通常是饱受争议的一个话题, 可用的方式较多, 我只讨论我使用的工作流的简化
+
+仅更新远端:
+
+- `git remote update`: 一次性更新所有远端 (也可以指定具体远端与分支)
+- `git fetch`: 拉取具体的远端或远端分支, 可以更精细的操作拉取细节
+
+同步方式, 当远端提交了新 commit, 而我提交了少许本地 commit:
+
+1. 使用 '仅更新远端' 的方式拉取 commit
+2. 使用 `git rebase @{upstream}` 将我的本地 commit 放在远端修改之后
+
+> [!TIP]
+> 也可以使用 `git pull --rebase`, 更加方便, 但是可能隐藏一些流程细节,
+> 且我早年使用 pull 时遇到了一些微妙的坑, 所以不再使用
+
+同步方式, 当远端提交了巨量新 commit, 而我提交了极少本地 commit:
+
+1. 使用 '仅更新远端' 的方式浅拉取部分 commit, 这样可以避免拉取太多内容
+2. 由于使用浅拉取, 本地与远端新 commit 不具备共同祖先, 无法直接 rebase,
+   先使用 `git reset --hard` 设置到远端,
+   再使用 `git cherry-pick` 将极少的本地 commit 应用

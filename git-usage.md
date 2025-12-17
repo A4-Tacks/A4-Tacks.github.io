@@ -128,7 +128,7 @@ git 用引用指代某个 树对象(commit)、文件对象(blob) 等, 有多种�
     sc = sparse-checkout
     sparse-clone = clone --depth=1 --filter=blob:none --sparse
     detach = switch --detach
-    log-graph = -c log.showRoot=false log --graph --all
+    log-graph = -c log.showRoot=false log --graph --all --oneline
 ```
 
 > [!NOTE]

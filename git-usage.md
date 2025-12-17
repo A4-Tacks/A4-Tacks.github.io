@@ -214,3 +214,16 @@ git 用引用指代某个 树对象(commit)、文件对象(blob) 等, 有多种�
 2. 由于使用浅拉取, 本地与远端新 commit 不具备共同祖先, 无法直接 rebase,
    先使用 `git reset --hard` 设置到远端,
    再使用 `git cherry-pick` 将极少的本地 commit 应用
+
+
+跟踪修改
+-------------------------------------------------------------------------------
+有时希望使用 git 跟踪某些具体的修改, 可以使用以下方式
+
+- `git blame`: 显示某个文件中每行都由哪个 commit 进行最后更改
+- `git log --grep=xxx`: 仅显示 commit 信息中与 xxx 匹配的 commit
+- `git log -u`: 显示出每个 commit 进行的更改补丁, 方便查找内容
+- `git log src/main.rs`: 仅显示涉及某个文件的 commit (使用 `-u` 输出补丁时也仅输出该文件)
+- `git log -L1,8:foo.md`: 显示出涉及指定文件某些行的 commit
+- `git log -L:check_path:src/util.c`: 显示指定文件中涉及该函数的 commit 及函数内容,
+  (通常适用于 c 语言, 似乎需要匹配无缩进)

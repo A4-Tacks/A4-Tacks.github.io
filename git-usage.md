@@ -100,6 +100,7 @@ git 可以使用外部编辑器来更方便的解决合并冲突, 例如使用 v
 
 ```gitconfig
 [alias]
+    b  = commit -anm TODO --no-gpg-sign --branch  # 快速将当前修改提交为 TODO, 代替 stash
     cp = cherry-pick
     dt = difftool
     mt = mergetool

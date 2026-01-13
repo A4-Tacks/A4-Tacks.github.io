@@ -73,6 +73,9 @@ git 可以使用外部编辑器来更方便的解决合并冲突, 例如使用 v
 > [!TIP]
 > 配合稀疏检出, 可以当前 commit 都能部分拉取
 
+> [!NOTE]
+> 如果想取消部分克隆, 可以使用 `git backfill` 然后 `git config unset remote.origin.partialclonefilter`
+
 
 稀疏检出 (sparse-checkout)
 -------------------------------------------------------------------------------

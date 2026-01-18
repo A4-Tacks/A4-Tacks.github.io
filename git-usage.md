@@ -41,7 +41,7 @@ git 的许多命令都有特殊的交互模式, 通常用 `-i` 参数开启, 例
 -------------------------------------------------------------------------------
 git 可以使用外部编辑器来更方便的解决合并冲突, 例如使用 vim 进行多窗口比较合并
 
-可以使用的工具使用 `git mergetool --tool-help` 来列出
+可以使用的工具使用 `git mergetool --tool-help` 来列出, 可配置至 config
 
 例如可以使用 `vimdiff`, `vimdiff2`
 
@@ -146,13 +146,20 @@ git 用引用指代某个 树对象(commit)、文件对象(blob) 等, 有多种�
 > [!NOTE]
 > 关于为什么不用 shell 的别名, 因为我使用 bash, 而经过了 bash 别名补全就很麻烦了,
 > 而 git 的别名通常能识别补全
+>
+> 高频 git 操作我会使用 [short-git](https://github.com/A4-Tacks/my-bash-utils) 完成
 
-### 配置 core
+### 其它配置
 
 ```gitconfig
 [core]
     pager = less -FRXS      # less 查看时处理过长的行, 防止其破坏预览
     quotePath = false       # 中文路径等情况必备
+[interactive]
+    singleKey = true        # 使交互拣选时无需回车, 提高效率, 如果想防止手滑可以不使用
+[log]
+    date = iso8601          # 使用标准时间显示, 而不是英语的月、星期
+                            # 类似的, 你还可以使用 relative , 将显示例如 '16 分钟前'
 ```
 
 

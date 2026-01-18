@@ -19,7 +19,8 @@ git remote set-branches origin --add dev # 额外拉取 dev 分支
 可以使用具有其子功能的更具体的命令, 具有类似的选项
 
 - `git switch`: 创建分支与操作头指针
-- `git restore`: 操作本地与暂存区
+- `git restore`: 还原本地工作区
+- `git restore --staged`: 还原暂存区
 
 
 方便的交互
@@ -30,6 +31,7 @@ git 的许多命令都有特殊的交互模式, 通常用 `-i` 参数开启, 例
 - `git add -p`: 交互拣选、切分本地差异添加到暂存区
 - `git add -i`: 多功能交互添加 (可能有点复杂)
 - `git add -e`: 手动编辑本地差异补丁并添加补丁到暂存区
+- `git restore -p`: 交互拣选还原工作区, 添加 `--staged` 用于还原暂存区
 - `git clean -i`: 交互选择清除工作区中未跟踪文件
 - `git commit -e`: 提交时使用编辑器编辑提交信息 (通常自动启动无需指定 `-e`)
 - `git reset -p`: 将暂存区交互拣选至目标 commit, 将工作区保持原样, 可用于分割已有 commit

@@ -33,3 +33,8 @@ termios.error: (13, 'Permission denied')
 >>> tty.setcbreak(1)
 [1280, 5, 983231, ...]
 ```
+
+> [!NOTE]
+> 这只是单独解决了某 python 软件的问题, c 库仍然未解决,
+> 像 git 的 `interactive.singleKey` 我就无法正常使用了,
+> 解决这可能需要重新编译整个软件源的软件

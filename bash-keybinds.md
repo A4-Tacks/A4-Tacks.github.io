@@ -134,11 +134,11 @@
 ```inputrc
 # 通过C-p键和上方向键进行前缀历史检索
 "\e[A": history-search-backward
-"\x10": history-search-backward
+"\C-p": history-search-backward
 
 # 通过C-n键和下方向键进行前缀历史检索
 "\e[B": history-search-forward
-"\x0e": history-search-forward
+"\C-n": history-search-forward
 
 # 使用 TAB 来循环补全项
 Tab: menu-complete
@@ -166,9 +166,6 @@ Tab: menu-complete
 "\ek": previous-screen-line
 
 
-# 使用M-s键直接在行首插入sudo并移至行尾
-"\es": "\eOHsudo \eOF"
-
 # 按一次Tab就开始补全
 set show-all-if-ambiguous on
 
@@ -184,5 +181,8 @@ set menu-complete-display-prefix on
 # 补全时忽略大小写
 #set completion-ignore-case on
 
+# 交换标记点或粘贴模式等区域高亮配置
+set active-region-start-color "\e[48;5;238m"
+set active-region-end-color "\e[m"
 ```
 可以将其写入用户级配置文件 `~/.inputrc` 中, 可以使用`C-x C-r`键使其立即生效

@@ -192,3 +192,24 @@ set active-region-start-color "\e[48;5;238m"
 set active-region-end-color "\e[m"
 ```
 可以将其写入用户级配置文件 `~/.inputrc` 中, 可以使用`C-x C-r`键使其立即生效
+
+
+## 区域 (region) 操作
+readline 默认的编辑风格是 emacs 风格, 上述**所有**快捷键都是 emacs 风格下的快捷键
+
+而该风格也有类似 emacs region 的设计, 操作体验类似按住鼠标选中文本
+
+在 readline 中, region 指的是 **标记点** 到 **光标** 的区域, 通过 `C-x C-x` 可以交换标记点和光标
+
+readline 有两个特殊功能, 默认并未映射按键, 可用于剪切或复制 region 中的内容,
+例如将 `C-x C-w` 配置为删除, 将 `C-x C-y` 配置为复制 region 中的内容:
+
+```inputrc
+# 按键将 region 内容删去, 并压至yank栈顶
+"\C-x\C-w": kill-region
+# 按键将 region 内容压至yank栈顶
+"\C-x\C-y": copy-region-as-kill
+```
+
+选中复制一段任意文本的流程如下: `C-@` (一些光标移动操作) `C-x C-y`,
+就能将一段任意文本复制, 并在某处使用 `C-y` 粘贴

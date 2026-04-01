@@ -19,6 +19,7 @@ git remote set-branches origin --add dev # 额外拉取 dev 分支
 可以使用具有其子功能的更具体的命令, 具有类似的选项
 
 - `git switch`: 创建分支与操作头指针
+- `git switch --detach`: 分离头指针
 - `git restore`: 还原本地工作区
 - `git restore --staged`: 还原暂存区
 

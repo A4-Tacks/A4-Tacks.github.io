@@ -5,6 +5,11 @@
 下文中将会使用`C-x`来描述`Ctrl+x`, `M-x`来描述`Alt+x`, `M-C-x`来描述`Ctrl+Alt+x`,
 `C-x C-u`来描述`Ctrl+x Ctrl+u`, `a, b`描述a键或者b键, 这点与bash手册将一致.
 
+> [!IMPORTANT]
+> 关于 bash, 还存在 vi-mode, 但是本人并不推荐, 虽然我也是深度vim用户, 原因如下:
+> vi-mode 主要的效率提升来自对象编辑、模式操作等, 但是在 bash REPL 中难以用到这些,
+> 依靠连续 yank 和 region 操作几乎就能涵盖大部分的编辑需求
+
 # 入门快捷键
 
 - `C-a`, `C-e`: 这将是`Home`键和`End`键的替代品, 不必将手离开主输入区

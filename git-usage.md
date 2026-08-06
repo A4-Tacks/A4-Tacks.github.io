@@ -248,7 +248,7 @@ git 用引用指代某个 树对象(commit)、文件对象(blob) 等, 有多种�
 git config set remote.origin.pushurl invalid
 ```
 
-这用于设置对 origin 仅 push 时使用的仓库 url, 设置为无效 url 可以避免 push, 而 pull fetch 则正常
+这用于设置对 origin 进行 push 时使用的 url, 设置为无效 url 可以避免意外 push, 而 pull fetch 则正常
 
 
 跟踪修改

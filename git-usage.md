@@ -7,7 +7,8 @@ git 在一些情况下会默认只拉取部分、单个分支, 或者你想使�
 该配置位于 `.git/config` 的 `[remote]` 小节中的 `fetch` 属性
 
 ```bash
-git remote set-branches origin \*        # 改为拉取所有分支
+git remote set-branches origin main      # 改为仅拉取main分支
+git remote set-branches origin '*'       # 改为拉取所有分支
 git remote set-branches origin --add dev # 额外拉取 dev 分支
 ```
 

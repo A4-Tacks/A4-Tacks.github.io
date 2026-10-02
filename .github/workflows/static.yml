@@ -38,6 +38,7 @@ jobs:
           tar -xf md2html.tar.gz
           shopt -s globstar
           for md in **/*.md; do
+            echo $'\n\n---\n[返回上一级](..)' >> "$md"
             ./markdown2html-converter "$md" -t "A4-Tacks - ${md%.md}" --header-ids ""
           done
       - name: Setup Pages

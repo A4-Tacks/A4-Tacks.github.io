@@ -6,3 +6,4 @@
 - [bash-keybinds](./bash-keybinds.md)
 - [bash-script](./bash-script.md)
 - [exception-control-flow](./exception-control-flow.md)
+- [keynav](./keynav.md)

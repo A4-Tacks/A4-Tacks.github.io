@@ -256,6 +256,17 @@ q playback
 a history-back
 ```
 
+这份配置应该放到 '家目录' 中, 像是 `~/.keynavrc`,
+对于 [keynavish], 文件名建议用 `_keynavrc`
+
+> * `<executable path>/keynavrc` (for portability)
+> * `~/.keynavrc`
+> * `~/keynavrc`
+> * `~/.config/keynav/keynavrc`
+> 
+> Tildes (`~`) in paths are expanded to the value of `%HOME%` if it's set,
+> with fallback to `%USERPROFILE%` (usually `C:\Users\<username>`).
+
 > [!NOTE]
 > 这篇的主要目的其实是把我 private 仓库的完整配置, 裁剪出一份比较方便引用的配置
 

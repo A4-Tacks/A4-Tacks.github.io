@@ -267,9 +267,151 @@ a history-back
 > Tildes (`~`) in paths are expanded to the value of `%HOME%` if it's set,
 > with fallback to `%USERPROFILE%` (usually `C:\Users\<username>`).
 
+一个更加无脑的配置加载方式: `.\keynavish-v1.8.0-x86_64.exe "loadconfig keynavrc.txt"`
+
 > [!NOTE]
 > 这篇的主要目的其实是把我 private 仓库的完整配置, 裁剪出一份比较方便引用的配置
 
+**keynavish** 并不支持点击修饰, 所以需要阉割一下配置:
+
+```configure
+#daemonize
+
+clear  # clear all default
+
+ctrl+semicolon start
+Escape end
+x end
+ctrl+bracketleft end  # ctrl+左方括号
+
+h cut-left
+n cut-down
+u cut-up
+l cut-right
+d cut-left,cut-up
+k cut-right,cut-up
+j cut-left,cut-down
+f cut-right,cut-down
+shift+h move-left
+shift+n move-down
+shift+u move-up
+shift+l move-right
+shift+d move-left,move-up
+shift+k move-right,move-up
+shift+j move-left,move-down
+shift+f move-right,move-down
+# 在使用keynav时方便地按住ctrl
+# Handy for holding ctrl while using keynav:
+ctrl+h cut-left
+ctrl+n cut-down
+ctrl+u cut-up
+ctrl+l cut-right
+ctrl+d cut-left,cut-up
+ctrl+k cut-right,cut-up
+ctrl+j cut-left,cut-down
+ctrl+f cut-right,cut-down
+
+# 单击
+space warp,click 1,end # 在中间左键单击并结束
+t warp,click 2,end
+v warp,click 3,end
+
+# 双击, (Return 键大小写敏感)
+Return warp,doubleclick 1,end
+
+semicolon warp,end    # 移动鼠标并结束
+shift+semicolon warp  # 移动鼠标但不结束
+# 鼠标处点击而不是中心处
+4 click 4 # 上滚轮
+5 click 5 # 下滚轮
+6 click 6 # 左滚轮
+7 click 7 # 右滚轮
+
+# 中心处的滚轮
+b warp,click 4 # 上滚轮
+g warp,click 5 # 下滚轮
+
+# 快速滚动
+bracketleft  warp,click 4,click 4
+bracketright warp,click 5,click 5
+alt+bracketleft  warp,click 4,click 4,click 4
+alt+bracketright warp,click 5,click 5,click 5
+
+# 点击中心处但不结束
+i warp,click 1
+o warp,click 3
+p warp,click 2
+# ctrl
+
+# period: `.`
+# 拖动
+m drag 1
+comma drag 3
+period drag 2
+# 拖动 ctrl
+ctrl+m drag 1 ctrl
+ctrl+comma drag 3 ctrl
+ctrl+period drag 2 ctrl
+# 拖动 shift
+shift+m drag 1 shift
+shift+comma drag 3 shift
+shift+period drag 2 shift
+# 拖动 ctrl shift
+ctrl+shift+m drag 1 ctrl+shift
+ctrl+shift+comma drag 3 ctrl+shift
+ctrl+shift+period drag 2 ctrl+shift
+# 拖动 alt
+alt+m drag 1 alt
+alt+comma drag 3 alt
+alt+period drag 2 alt
+
+# 缩放到当前窗口
+# Zoom to the current window
+w windowzoom
+ctrl+w windowzoom
+shift+w windowzoom
+
+# 缩放到具有给定高度和宽度的光标位置
+# Zoom to the cursor location with a given height and width
+c cursorzoom 200 200
+ctrl+c cursorzoom 200 200
+# 用于扩大选区的一种方式
+s warp,cursorzoom 200 200
+shift+c warp,cursorzoom 200 200
+ctrl+shift+c cursorzoom 200 200
+# 横向|纵向扩展选区
+e warp,cursorzoom 400 400
+r warp,cursorzoom 800 800
+
+# 箭头键也可以移动网格
+# Arrow keys can move the grid as welll
+Left cut-left
+Down cut-down
+Up cut-up
+Right cut-right
+shift+Left move-left
+shift+Down move-down
+shift+Up move-up
+shift+Right move-right
+ctrl+Left cut-left
+ctrl+Down cut-down
+ctrl+Up cut-up
+ctrl+Right cut-right
+ctrl+shift+Left move-left
+ctrl+shift+Down move-down
+ctrl+shift+Up move-up
+ctrl+shift+Right move-right
+
+# 记录keynav行动, q? @?
+# Record keynav actions
+shift+at record
+q playback
+
+# History
+a history-back
+```
+
+顺便我还喜欢 `CapsLock::Ctrl` in AutoHotKey
 
 [keynav]: https://github.com/jordansissel/keynav
 [keynavish]: https://github.com/lesderid/keynavish
